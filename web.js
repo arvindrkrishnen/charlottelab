@@ -1,6 +1,6 @@
 var express = require('express');
 var fs = require('fs');
-var htmlfile = "index.html";
+var htmlfile = "newIndex.html";
 var app = express.createServer(express.logger());
 app.use(express.logger());
 
