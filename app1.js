@@ -1,15 +1,14 @@
 var express = require('express')
-//  , routes  = require('./routes')
-//  , user    = require('./routes/user')
+  , routes  = require('./routes')
+  , user    = require('./routes/user')
   , http    = require('http')
   , path    = require('path')
   , db      = require('./models')
- 
 
-var express = require('express');
- 
+var app = express()
+
 // all environments
-app.set('port', process.env.PORT || 8080)
+app.set('port', process.env.PORT || 3000)
 app.set('views', __dirname + '/views')
 app.set('view engine', 'jade')
 app.use(express.favicon())
@@ -18,15 +17,15 @@ app.use(express.bodyParser())
 app.use(express.methodOverride())
 app.use(app.router)
 app.use(express.static(path.join(__dirname, 'public')))
- 
+
 // development only
 if ('development' === app.get('env')) {
   app.use(express.errorHandler())
 }
- 
+
 app.get('/', routes.index)
 app.get('/users', user.list)
- 
+
 db.sequelize.sync().complete(function(err) {
   if (err) {
     throw err
