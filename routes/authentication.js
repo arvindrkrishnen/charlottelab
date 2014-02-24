@@ -93,7 +93,9 @@ log("Updating user" + id);
 
 log(JSON.stringify(user));
 
-collection.update({'_id':new BSON.ObjectID(id)}, user, {safe:true}, function(err, result) {
+//collection.update({'_id':new BSON.ObjectID(id)}, user, {safe:true}, function(err, result) {
+collection.update({employeeID:id}, user, {safe:true}, function(err, result) {
+
   if (err) {
       log("Error Updating" + err);
       res.send("Error Updating");
