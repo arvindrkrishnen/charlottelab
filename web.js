@@ -15,7 +15,7 @@ app.configure(function () {
 app.get('/auth', auth.findAll);
 app.get('/auth/:id', auth.findbyId);
 app.post('/auth', auth.addUser);
-app.put('/auth', auth.updateUser);
+app.put('/auth/:id', auth.updateUser);
 
 
 
